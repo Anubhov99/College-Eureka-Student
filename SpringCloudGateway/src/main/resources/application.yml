@@ -1,0 +1,15 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: collegeModule
+          uri: http://localhost:9000/
+          predicates:
+            - Path=/college/**
+        - id: studentModule
+          uri: http://localhost:9100/
+          predicates:
+            - Path=/student/**
